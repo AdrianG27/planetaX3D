@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  
+  
+   <title>X3D</title>
+    <script src="http://www.x3dom.org/release/x3dom.js"></script>
+    <link rel="stylesheet" href="http://www.x3dom.org/release/x3dom.css">
+	<style>
+	body{
+	background-color: black;
+	color: white;
+	font-family: sans-serif;
+	}
+	
+	.matroshka{
+	margin-top: 150px;
+	width: 600px;
+	margin: auto;
+	}
+	</style>
+  </head>
+  <body>
+  <div class='matroshka'>
+  <h1>Sistema Solar </h1>
+    <x3d width='600' height='400'>
+      <scene DEF='scene'>
+	  <background backUrl='texturas/espacio.jpg' bottomUrl='texturas/espacio.jpg' frontUrl='texturas/espacio.jpg' leftUrl='texturas/espacio.jpg' rightUrl='texturas/espacio.jpg' topUrl='texturas/espacio.jpg'></background>
+        <transform DEF='SSolar' rotation='1 0 1 -0.4'>
+			<shape>
+				<appearance>
+					<material diffuseColor='1 1 0'></material>
+					<imageTexture url='texturas/csol.jpg'></imageTexture>
+				</appearance>
+				<sphere radius='1'></sphere>
+			</shape>
+			
+		 <transform translation="3 0 2.5">
+               
+                <shape>
+                <appearance>
+                    <material diffusecolor="0.81 0.60 0.15"
+                    ></material>
+                    <imageTexture url="texturas/cluna.jpg">
+                        
+                    </imageTexture>
+                </appearance>
+                <sphere radius="0.1" />
+            </shape>
+            
+            </transform>
+            
+            <transform translation="3 0 3">
+               
+                <shape>
+                <appearance>
+                    <material diffusecolor="0.81 0.60 0.15"
+                    ></material>
+                    <imageTexture url="texturas/ctierra.jpg">
+                        
+                    </imageTexture>
+                </appearance>
+                <sphere radius="0.2" />
+            </shape>
+            
+            </transform>
+            <transform translation="6 0 -6">
+               
+                <shape>
+                <appearance>
+                    <material diffusecolor="0.81 0.60 0.15"
+                    ></material>
+                    <imageTexture url="texturas/cjupiter.jpg.jpg">
+                        
+                    </imageTexture>
+                </appearance>
+                <sphere radius="0.6" />
+            </shape>
+            
+            </transform>
+            <transform translation="1.5 0 0">
+               
+                <shape>
+                <appearance>
+                    <material diffusecolor="0.81 0.60 0.15"
+                    ></material>
+                    <imageTexture url="texturas/cmercurio.jpg">
+                        
+                    </imageTexture>
+                </appearance>
+                <sphere radius="0.09" />
+            </shape>
+            
+            </transform>
+            <transform translation="-2 0 -2">
+               
+                <shape>
+                <appearance>
+                    <material diffusecolor="0.81 0.60 0.15"
+                    ></material>
+                    <imageTexture url="texturas/cvenus.jpg">
+                        
+                    </imageTexture>
+                </appearance>
+                <sphere radius="0.15" />
+            </shape>
+            
+            </transform>
+             <transform translation="-5 0 0">
+               
+                <shape>
+                <appearance>
+                    <material diffusecolor="0.81 0.60 0.15"
+                    ></material>
+                    <imageTexture url="texturas/cmarte.jpg">
+                        
+                    </imageTexture>
+                </appearance>
+                <sphere radius="0.15" />
+            </shape>
+            
+            </transform>
+            <transform translation="9 0 9">
+               
+                <shape>
+                <appearance>
+                    <material diffusecolor="0.81 0.60 0.15"
+                    ></material>
+                    <imageTexture url="texturas/curano.jpg">
+                        
+                    </imageTexture>
+                </appearance>
+                <sphere radius="0.3" />
+            </shape>
+            
+            </transform>
+            <transform translation="10 0 -11">
+               
+                <shape>
+                <appearance>
+                    <material diffusecolor="0.81 0.60 0.15"
+                    ></material>
+                    <imageTexture url="texturas/cneptuno.jpg">
+                        
+                    </imageTexture>
+                </appearance>
+                <sphere radius="0.15" />
+            </shape>
+            
+            </transform>
+             <transform translation="0 0 -8">
+               
+                <shape>
+                <appearance>
+                    <material diffusecolor="0.81 0.60 0.15"
+                    ></material>
+                    <imageTexture url="texturas/csaturno.jpg">
+                        
+                    </imageTexture>
+                    
+                    
+                    
+                </appearance>
+                <sphere radius="0.5" />
+            </shape>
+            
+            </transform>
+		
+			<timeSensor DEF='timer' cycleInterval='60' loop='true'></timeSensor>
+			<orientationInterpolator DEF='rotator' key='0 0.5 1' keyValue='0 1 0 0 0 1 0 3.14 0 1 0 6.28'>
+			</orientationInterpolator>	  
+        </transform>
+        <ROUTE fromNode='timer' fromField='fraction_changed' toNode='rotator' toField='set_fraction'></ROUTE>
+        <ROUTE fromNode='rotator' fromField='value_changed' toNode='SSolar' toField='set_rotation'></ROUTE>
+		
+
+      </scene>
+    </x3d>
+	</div>
+  </body>
+</html>
